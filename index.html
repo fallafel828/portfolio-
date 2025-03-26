@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link id="css1" rel="stylesheet" href="style.css">
+    <link id="css2" rel="stylesheet" href="style2.css" disabled>
+    <link id="css3" rel="stylesheet" href="style3.css" disabled>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script defer>
+        function showPage(pageToShow) {
+            document.getElementById("page1").style.display = "none";
+            document.getElementById("page2").style.display = "none";
+            document.getElementById("page3").style.display = "none";
+    
+            document.getElementById(pageToShow).style.display = "flex";
+    
+            document.getElementById("css1").disabled = (pageToShow !== "page1");
+            document.getElementById("css2").disabled = (pageToShow !== "page2");
+            document.getElementById("css3").disabled = (pageToShow !== "page3");
+        }
+    
+        function goToNextPage(currentPage) {
+            if (currentPage === "page1") {
+                showPage("page2");
+            } else if (currentPage === "page2") {
+                showPage("page3");
+            }
+        }
+    
+        function goBack(currentPage) {
+            if (currentPage === "page2") {
+                showPage("page1");
+            } else if (currentPage === "page3") {
+                showPage("page2");
+            }
+        }
+
+        function navigateTo(page) {
+            window.location.href = page; 
+        }
+    </script>    
+</head>
+<body>
+
+    <div id="page1" class="container">
+        <h1 class="title">Mon Portfolio</h1>
+        <h2 class="subtitle">MMI 1 2024/2025</h2>
+        <video autoplay loop muted playsinline id="background-video">
+            <source src="C:/Users/felix/Downloads/The World’s GREATEST Kobe Bryant Highlight Reel 🐍.mp4" type="video/mp4">
+            Désolé, votre navigateur ne supporte pas la vidéo.
+        </video>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/c/c3/Logotype_de_l%E2%80%99universit%C3%A9_de_Corse-Pascal-Paoli.svg/2560px-Logotype_de_l%E2%80%99universit%C3%A9_de_Corse-Pascal-Paoli.svg.png" 
+        alt="logo" class="logo">
+        <button class="start-button" onclick="goToNextPage('page1')">Commencer</button>
+    </div>
+
+    <div id="page2" class="container" style="display: none;">
+        <h1 class="title">Bienvenue sur mon portfolio</h1>
+        <button class="start-button" onclick="goToNextPage('page2')">Continuer</button>
+        <button class="back-button" onclick="goBack('page2')">Retour</button>
+        <div class="barre-blanche">Félix Roumanie / MMI1</div>
+        <div class="barre-noire">
+            <span  onclick="navigateTo('index.html')">Accueil</span>
+            <span  onclick="navigateTo('etudes.html')">Etudes</span>
+            <span  onclick="navigateTo('contact.html')">Contact</span>
+            <span  onclick="navigateTo('a-propos.html')">A propos de moi</span>
+            <span  onclick="navigateTo('travaux.html')">Travaux</span>
+        </div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/felix._rmne?igsh=MXJwdmF6ZmNsdm00aw%3D%3D&utm_source=qr" target="_blank">
+                <i class="fab fa-instagram"></i> felix._rmne
+            </a>
+            <a href="https://snapchat.com/t/zwLhVyZ8" target="_blank">
+                <i class="fab fa-snapchat-ghost"></i> felix_rmne
+            </a>
+            <a href="https://www.facebook.com/share/18sK8uioUJ/?mibextid=wwXIfr" target="_blank">
+                <i class="fab fa-facebook-f"></i> Félix Roumanie
+            </a>
+            <a href="https://www.tiktok.com/@felix_rmne?_t=ZN-8ukIz65geSk&_r=1" target="_blank">
+                <i class="fab fa-tiktok"></i> felix_rmne
+            </a>
+        </div>
+    </div>   
+
+    <div id="page3" class="container" style="display: none;">
+        <h1 class="title">Etudes</h1>
+        <button class="back-button" onclick="goBack('page3')">Retour</button>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/c/c3/Logotype_de_l%E2%80%99universit%C3%A9_de_Corse-Pascal-Paoli.svg/2560px-Logotype_de_l%E2%80%99universit%C3%A9_de_Corse-Pascal-Paoli.svg.png" 
+        alt="logo" class="logo">
+    </div>
+
+</body>
+</html>
